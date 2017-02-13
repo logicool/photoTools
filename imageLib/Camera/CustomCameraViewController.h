@@ -10,10 +10,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <CoreMotion/CMMotionManager.h>
+#import <Photos/Photos.h>
 
 #import "CameraFocusView.h"
 #import "CameraGridView.h"
-
+#import "CameraConfirmView.h"
 @interface CustomCameraViewController : UIViewController
 
 /**
@@ -44,6 +45,7 @@
 @property (nonatomic)UIButton *flashButton;
 @property (nonatomic)UIButton *cancelButton;
 @property (nonatomic)CameraGridView *gridView;
+@property (nonatomic, strong) UIImage *imageToDisplay;
 @property (nonatomic)BOOL canCa;
 // 螺旋仪和加速器
 @property (nonatomic, strong) CMMotionManager * motionManager;

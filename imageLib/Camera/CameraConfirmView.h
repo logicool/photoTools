@@ -10,10 +10,13 @@
 
 @protocol CameraConfirmViewDelegate <NSObject>
 - (void)cameraConfirmViewSendBtnTouched;
-- (void)cameraConfirmViewCancleBtnTouched;
+- (void)cameraConfirmViewCancelBtnTouched;
+- (void)cameraConfirmViewEditBtnTouched;
 @end
 
 @interface CameraConfirmView : UIView
 @property (nonatomic, weak) id <CameraConfirmViewDelegate> delegate;
-@property (nonatomic) UIImage * imageForConfirm;
+@property (nonatomic) UIImageView * imageForConfirm;
+
+- (void)imageForConfirm:(UIImage *) image;
 @end

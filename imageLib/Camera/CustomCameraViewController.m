@@ -5,6 +5,7 @@
 //  Created by 高函 on 17/2/8.
 //  Copyright © 2017年 高函. All rights reserved.
 //
+#define kScreenScale [UIScreen mainScreen].scale
 #define kScreenBounds   [UIScreen mainScreen].bounds
 #define kScreenWidth  kScreenBounds.size.width
 #define kScreenHeight kScreenBounds.size.height
@@ -21,7 +22,7 @@ typedef void(^codeBlock)();
 static CGFloat BOTTOM_HEIGHT = 60;
 static CGFloat TOP_HEIGHT = 44;
 
-@interface CustomCameraViewController ()<AVCaptureMetadataOutputObjectsDelegate,UIAlertViewDelegate, CameraFocusDelegate>
+@interface CustomCameraViewController ()<AVCaptureMetadataOutputObjectsDelegate,UIAlertViewDelegate, CameraFocusDelegate, CameraConfirmViewDelegate>
 
 @end
 
@@ -182,15 +183,17 @@ static CGFloat TOP_HEIGHT = 44;
     _downView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_downView];
     
-    CGFloat x = (_downView.frame.size.width - 50) / 3;
+    CGFloat x = (_downView.frame.size.width) / 3;
     
     _cancelButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, x, BOTTOM_HEIGHT)];
+//    _cancelButton.backgroundColor = [UIColor redColor];
     [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     [_cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
     [_downView addSubview:_cancelButton];
     
-    UIButton *takePhotoBtn = [[UIButton alloc]initWithFrame:CGRectMake(x + 20, 5, x, BOTTOM_HEIGHT - 10 )];
+    UIButton *takePhotoBtn = [[UIButton alloc]initWithFrame:CGRectMake(x, 5, x, BOTTOM_HEIGHT - 10 )];
+//    takePhotoBtn.backgroundColor = [UIColor purpleColor];
     [takePhotoBtn setImage:IMAGE(@"photograph.png") forState:UIControlStateNormal];
     takePhotoBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [takePhotoBtn setImage:IMAGE(@"photograph_Select.png") forState:UIControlStateNormal];
@@ -223,7 +226,7 @@ static CGFloat TOP_HEIGHT = 44;
     }
     //预览层的生成
     CGFloat viewWidth = self.view.frame.size.width;
-    CGFloat viewHeight = viewWidth / 480 * 640;;
+    CGFloat viewHeight = viewWidth / 480 * 640;
     self.previewLayer =[AVCaptureVideoPreviewLayer layerWithSession:self.session];
     self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     self.previewLayer.frame = CGRectMake(0, TOP_HEIGHT, viewWidth, viewHeight);
@@ -376,32 +379,61 @@ static CGFloat TOP_HEIGHT = 44;
         t_image = [weakSelf cutImage:t_image];
         t_image = [weakSelf fixOrientation:t_image];
 
-        [self saveImageToPhotoAlbum:t_image];
+        weakSelf.imageToDisplay = t_image;
+        
+        [weakSelf displayImage:t_image];
+//        [self saveImageToPhotoAlbum:t_image];
     }];
 }
 
-#pragma - 保存至相册
+#pragma mark - 展示确认页
+- (void)displayImage:(UIImage *) images {
+    CameraConfirmView *view = [[CameraConfirmView alloc] initWithFrame:self.view.frame];
+    view.delegate = self;
+    [view imageForConfirm: images];
+    [self.view addSubview:view];
+}
+
+#pragma mark - 保存至相册
 - (void)saveImageToPhotoAlbum:(UIImage*)savedImage
 {
-    UIImageWriteToSavedPhotosAlbum(savedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+//    UIImageWriteToSavedPhotosAlbum(savedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+    __block NSString *createdAssetID =nil;//唯一标识，可以用于图片资源获取
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        createdAssetID = [PHAssetChangeRequest creationRequestForAssetFromImage:savedImage].placeholderForCreatedAsset.localIdentifier;
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (success) {
+            if (createdAssetID != nil) {
+                PHFetchResult *result = [PHAsset fetchAssetsWithLocalIdentifiers:@[createdAssetID] options:nil];
+                [result.firstObject requestContentEditingInputWithOptions: nil completionHandler:^(PHContentEditingInput * _Nullable contentEditingInput, NSDictionary * _Nonnull info) {
+                    NSLog(@"%@", [contentEditingInput fullSizeImageURL]);
+                }];
+            }
+        } else {
+            NSLog(@"保存失败：%@",error);
+        }
+    }];
+    
 }
 
 #pragma mark - 指定回调方法
-- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
-{
-    NSString *msg = nil ;
-    if(error != NULL){
-        msg = @"保存图片失败" ;
-    }else{
-        msg = @"保存图片成功" ;
-    }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"保存图片结果提示"
-                                                    message:msg
-                                                   delegate:self
-                                          cancelButtonTitle:@"确定"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
+//- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
+//{
+//    NSLog(@"%@", contextInfo);
+////    NSString *msg = nil ;
+////    if(error != NULL){
+////        msg = @"保存图片失败" ;
+////    }else{
+////        msg = @"保存图片成功" ;
+////    }
+////    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"保存图片结果提示"
+////                                                    message:msg
+////                                                   delegate:self
+////                                          cancelButtonTitle:@"确定"
+////                                          otherButtonTitles:nil];
+////    [alert show];
+//}
 
 - (void)cancel
 {
@@ -412,6 +444,7 @@ static CGFloat TOP_HEIGHT = 44;
 }
 
 - (void)done{
+    [self saveImageToPhotoAlbum:self.imageToDisplay];
     // 返回保存图片绝对地址 @FIXME @TODO
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -460,7 +493,7 @@ static CGFloat TOP_HEIGHT = 44;
 //裁剪image
 - (UIImage *)cutImage:(UIImage *)srcImg {
     //这个rect是指横屏时的rect，即屏幕对着自己，home建在右边
-    CGRect rect = CGRectMake((srcImg.size.height / CGRectGetHeight(self.view.frame)) * 70, 0, srcImg.size.width * 1.33, srcImg.size.width);
+    CGRect rect = CGRectMake((srcImg.size.height / CGRectGetHeight(self.view.frame)) * TOP_HEIGHT * kScreenScale, 0, srcImg.size.width * 1.33, srcImg.size.width);
     CGImageRef subImageRef = CGImageCreateWithImageInRect(srcImg.CGImage, rect);
     CGFloat subWidth = CGImageGetWidth(subImageRef);
     CGFloat subHeight = CGImageGetHeight(subImageRef);
@@ -610,6 +643,19 @@ static CGFloat TOP_HEIGHT = 44;
     return img;
 }
 */
+
+#pragma mark -  展示页面 protocol
+- (void)cameraConfirmViewSendBtnTouched {
+    // 保存
+    [self done];
+}
+- (void)cameraConfirmViewCancelBtnTouched {
+    // 重拍
+}
+
+- (void)cameraConfirmViewEditBtnTouched {
+    // 进入编辑页面
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
