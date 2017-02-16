@@ -25,6 +25,10 @@
 		A759FA1B1E4AEFFB00F53B45 /* photograph_Select.png in Resources */ = {isa = PBXBuildFile; fileRef = A759FA1A1E4AEFFB00F53B45 /* photograph_Select.png */; };
 		A759FA1E1E4B449700F53B45 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A759FA1D1E4B449700F53B45 /* CoreMotion.framework */; };
 		A7E3C0AA1E515F10005FE109 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3C0A91E515F10005FE109 /* Photos.framework */; };
+		A7E3C0AD1E518675005FE109 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C0AC1E518675005FE109 /* PhotoPickerViewController.m */; };
+		A7E3C0B61E51A167005FE109 /* PhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C0B11E51A167005FE109 /* PhotoTweaksViewController.m */; };
+		A7E3C0B71E51A167005FE109 /* PhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C0B31E51A167005FE109 /* PhotoTweakView.m */; };
+		A7E3C0B81E51A167005FE109 /* UIColor+Tweak.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C0B51E51A167005FE109 /* UIColor+Tweak.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,14 @@
 		A759FA1A1E4AEFFB00F53B45 /* photograph_Select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photograph_Select.png; sourceTree = "<group>"; };
 		A759FA1D1E4B449700F53B45 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A7E3C0A91E515F10005FE109 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		A7E3C0AB1E518675005FE109 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoPickerViewController.h; path = PhotoPicker/PhotoPickerViewController.h; sourceTree = "<group>"; };
+		A7E3C0AC1E518675005FE109 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoPickerViewController.m; path = PhotoPicker/PhotoPickerViewController.m; sourceTree = "<group>"; };
+		A7E3C0B01E51A167005FE109 /* PhotoTweaksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTweaksViewController.h; sourceTree = "<group>"; };
+		A7E3C0B11E51A167005FE109 /* PhotoTweaksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweaksViewController.m; sourceTree = "<group>"; };
+		A7E3C0B21E51A167005FE109 /* PhotoTweakView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTweakView.h; sourceTree = "<group>"; };
+		A7E3C0B31E51A167005FE109 /* PhotoTweakView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweakView.m; sourceTree = "<group>"; };
+		A7E3C0B41E51A167005FE109 /* UIColor+Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tweak.h"; sourceTree = "<group>"; };
+		A7E3C0B51E51A167005FE109 /* UIColor+Tweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tweak.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +101,7 @@
 		A71296A81E4AB7C400B96583 /* imageLib */ = {
 			isa = PBXGroup;
 			children = (
+				A7E3C0AE1E518686005FE109 /* PhotoPicker */,
 				A71296C31E4AE9A500B96583 /* Camera */,
 				A71296AC1E4AB7C400B96583 /* AppDelegate.h */,
 				A71296AD1E4AB7C400B96583 /* AppDelegate.m */,
@@ -139,6 +152,29 @@
 				A759FA1D1E4B449700F53B45 /* CoreMotion.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7E3C0AE1E518686005FE109 /* PhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				A7E3C0AF1E51A167005FE109 /* PhotoTweaks */,
+				A7E3C0AB1E518675005FE109 /* PhotoPickerViewController.h */,
+				A7E3C0AC1E518675005FE109 /* PhotoPickerViewController.m */,
+			);
+			name = PhotoPicker;
+			sourceTree = "<group>";
+		};
+		A7E3C0AF1E51A167005FE109 /* PhotoTweaks */ = {
+			isa = PBXGroup;
+			children = (
+				A7E3C0B01E51A167005FE109 /* PhotoTweaksViewController.h */,
+				A7E3C0B11E51A167005FE109 /* PhotoTweaksViewController.m */,
+				A7E3C0B21E51A167005FE109 /* PhotoTweakView.h */,
+				A7E3C0B31E51A167005FE109 /* PhotoTweakView.m */,
+				A7E3C0B41E51A167005FE109 /* UIColor+Tweak.h */,
+				A7E3C0B51E51A167005FE109 /* UIColor+Tweak.m */,
+			);
+			path = PhotoTweaks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,10 +257,14 @@
 			files = (
 				A708789D1E4C7FC200D3153C /* CameraConfirmView.m in Sources */,
 				A723926B1E4C1E4900624B46 /* CameraFocusView.m in Sources */,
+				A7E3C0B81E51A167005FE109 /* UIColor+Tweak.m in Sources */,
 				A71296B11E4AB7C400B96583 /* ViewController.m in Sources */,
 				A71296AE1E4AB7C400B96583 /* AppDelegate.m in Sources */,
+				A7E3C0B61E51A167005FE109 /* PhotoTweaksViewController.m in Sources */,
 				A71296C21E4AB9E600B96583 /* CustomCameraViewController.m in Sources */,
+				A7E3C0AD1E518675005FE109 /* PhotoPickerViewController.m in Sources */,
 				A71296AB1E4AB7C400B96583 /* main.m in Sources */,
+				A7E3C0B71E51A167005FE109 /* PhotoTweakView.m in Sources */,
 				A72392761E4C439900624B46 /* CameraGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

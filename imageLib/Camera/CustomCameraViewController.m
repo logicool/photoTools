@@ -409,12 +409,13 @@ static CGFloat TOP_HEIGHT = 44;
                 [result.firstObject requestContentEditingInputWithOptions: nil completionHandler:^(PHContentEditingInput * _Nullable contentEditingInput, NSDictionary * _Nonnull info) {
                     NSLog(@"%@", [contentEditingInput fullSizeImageURL]);
                 }];
+            } else {
+                NSLog(@"获取保存Image失败！", nil);
             }
         } else {
             NSLog(@"保存失败：%@",error);
         }
     }];
-    
 }
 
 #pragma mark - 指定回调方法
