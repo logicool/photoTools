@@ -9,7 +9,9 @@
 #import "ViewController.h"
 #import "CustomCameraViewController.h"
 #import "PhotoPickerViewController.h"
-@interface ViewController ()
+#import "LGPhotoPickerViewController.h"
+#import "LGPhotoAssets.h"
+@interface ViewController () <LGPhotoPickerViewControllerDelegate>
 
 @end
 
@@ -40,6 +42,16 @@
     pickerBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [pickerBtn addTarget:self action:@selector(openPicker) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:pickerBtn];
+    
+    UIButton *moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    moreBtn.frame = CGRectMake(CGRectGetMidX(self.view.frame) - 30, CGRectGetMidY(self.view.frame) - 190, 60, 60);
+    [moreBtn setTitle:@"多选择" forState:UIControlStateNormal];
+    [moreBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [moreBtn setBackgroundColor:[UIColor purpleColor]];
+    
+    moreBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [moreBtn addTarget:self action:@selector(presentPhotoPickerViewControllerWithStyle) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:moreBtn];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -60,6 +72,50 @@
 {
     PhotoPickerViewController *pp = [[PhotoPickerViewController alloc] init];
     [self presentViewController:pp animated:YES completion:nil];
+}
+
+/**
+ *  初始化相册选择器
+ */
+- (void)presentPhotoPickerViewControllerWithStyle {
+    LGPhotoPickerViewController *pickerVc = [[LGPhotoPickerViewController alloc] initWithShowType:LGShowImageTypeImagePicker];
+    pickerVc.status = PickerViewShowStatusCameraRoll;
+    pickerVc.maxCount = 11;   // 最多能选11张图片
+    pickerVc.delegate = self;
+    [pickerVc showPickerVc:self];
+}
+
+#pragma mark - LGPhotoPickerViewControllerDelegate
+
+- (void)pickerViewControllerDoneAsstes:(NSArray *)assets isOriginal:(BOOL)original{
+    /*
+     //assets的元素是LGPhotoAssets对象，获取image方法如下:
+     NSMutableArray *thumbImageArray = [NSMutableArray array];
+     NSMutableArray *originImage = [NSMutableArray array];
+     NSMutableArray *fullResolutionImage = [NSMutableArray array];
+     
+     for (LGPhotoAssets *photo in assets) {
+     //缩略图
+     [thumbImageArray addObject:photo.thumbImage];
+     //原图
+     [originImage addObject:photo.originImage];
+     //全屏图
+     [fullResolutionImage addObject:fullResolutionImage];
+     }
+     */
+    for (LGPhotoAssets *photo in assets) {
+        NSLog(@"%@ withUrl: %@", photo.originImage, photo.absoluteURL);
+    }
+    
+    NSInteger num = (long)assets.count;
+    NSString *isOriginal = original? @"YES":@"NO";
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"发送图片" message:[NSString stringWithFormat:@"您选择了%ld张图片\n是否原图：%@",(long)num,isOriginal] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alertView show];
+}
+
+-(void) cancelPickerViewController
+{
+    NSLog(@"callBackTest", nil);
 }
 
 - (void)didReceiveMemoryWarning {

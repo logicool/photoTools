@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3B0EADDB77757F7C34D36E57C1491F4518A6B13B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E6F9610738AFC006F10DAD0C7976F1B82F522B56" : 9223372036854775807,
+    "3B0EADDB77757F7C34D36E57C1491F4518A6B13B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "63B5FA06-A85A-4021-BFD7-FCB6FE0137BA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E6F9610738AFC006F10DAD0C7976F1B82F522B56" : "LGPhotoBrowser\/",
+    "3B0EADDB77757F7C34D36E57C1491F4518A6B13B" : "imageLib\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "imageLib",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "imageLib.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/logicool\/photoTools.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3B0EADDB77757F7C34D36E57C1491F4518A6B13B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gang544043963\/LGPhotoBrowser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E6F9610738AFC006F10DAD0C7976F1B82F522B56"
+    }
+  ]
+}
