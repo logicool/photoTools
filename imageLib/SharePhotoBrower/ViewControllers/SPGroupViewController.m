@@ -263,6 +263,25 @@ static float KCompressibilityFactor = 1280.00;
     NSArray *tmp = [[NSArray alloc] initWithArray:[self.shareData valueForKey:@"photoList"]];
     self.collectionView.dataArray = [NSMutableArray arrayWithArray:tmp];
     [self.assets setArray:tmp];
+    
+    // 默认选中前9张图片
+    NSMutableArray *selected = [self formatAssets:tmp];
+    [self.selectAssets setArray:selected];
+    self.collectionView.selectAssets =  selected;
+}
+
+//// 格式化图片数组
+- (NSMutableArray *) formatAssets: (NSArray*) assests {
+    NSMutableArray *tmp = [[NSMutableArray alloc] initWithCapacity:9];
+    int i = 0;
+    for (id obj in assests) {
+        if (i == 9) {
+            break;
+        }
+        [tmp addObject:[SPBrowserPhoto photoAnyImageObjWith:obj]];
+        i++;
+    }
+    return tmp;
 }
 
 
