@@ -14,6 +14,7 @@
 #import "LGPhotoPickerBrowserViewController.h"
 #import "LGPhotoPickerAssetsViewController.h"
 #import "LGPhotoPickerViewController.h"
+#import "UIView+Layout.h"
 
 
 typedef void(^scrollViewCallBackBlock)(id obj);

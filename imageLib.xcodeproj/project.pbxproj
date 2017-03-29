@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93D3BBA5AD1F39AB8CFD8374 /* libPods-imageLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E35E8E69E8CDDB81D22BDF89 /* libPods-imageLib.a */; };
 		A708789D1E4C7FC200D3153C /* CameraConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = A708789C1E4C7FC200D3153C /* CameraConfirmView.m */; };
 		A71296AB1E4AB7C400B96583 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A71296AA1E4AB7C400B96583 /* main.m */; };
 		A71296AE1E4AB7C400B96583 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A71296AD1E4AB7C400B96583 /* AppDelegate.m */; };
@@ -16,11 +17,8 @@
 		A71296B91E4AB7C400B96583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A71296B71E4AB7C400B96583 /* LaunchScreen.storyboard */; };
 		A71296C21E4AB9E600B96583 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A71296C11E4AB9E600B96583 /* CustomCameraViewController.m */; };
 		A723926B1E4C1E4900624B46 /* CameraFocusView.m in Sources */ = {isa = PBXBuildFile; fileRef = A723926A1E4C1E4900624B46 /* CameraFocusView.m */; };
-		A723926D1E4C21B600624B46 /* cameraFocus.png in Resources */ = {isa = PBXBuildFile; fileRef = A723926C1E4C21B600624B46 /* cameraFocus.png */; };
-		A723926F1E4C418D00624B46 /* flash-auto.png in Resources */ = {isa = PBXBuildFile; fileRef = A723926E1E4C418D00624B46 /* flash-auto.png */; };
-		A72392711E4C419600624B46 /* flash-on.png in Resources */ = {isa = PBXBuildFile; fileRef = A72392701E4C419600624B46 /* flash-on.png */; };
-		A72392731E4C41A100624B46 /* flash.png in Resources */ = {isa = PBXBuildFile; fileRef = A72392721E4C41A100624B46 /* flash.png */; };
 		A72392761E4C439900624B46 /* CameraGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = A72392751E4C439900624B46 /* CameraGridView.m */; };
+		A739EE791E7BE61800496D9B /* SPAlbums.m in Sources */ = {isa = PBXBuildFile; fileRef = A739EE781E7BE61800496D9B /* SPAlbums.m */; };
 		A749BB041E5D7A27009EC8F5 /* CommonHeader.h in Sources */ = {isa = PBXBuildFile; fileRef = A749BB031E5D79B8009EC8F5 /* CommonHeader.h */; };
 		A749BB351E5DA938009EC8F5 /* LGPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = A749BB1E1E5DA938009EC8F5 /* LGPhotoAssets.m */; };
 		A749BB361E5DA938009EC8F5 /* LGPhotoPickerDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = A749BB201E5DA938009EC8F5 /* LGPhotoPickerDatas.m */; };
@@ -42,22 +40,34 @@
 		A749BB5A1E5DAA19009EC8F5 /* LGPhotoPickerBrowserPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A749BB511E5DAA19009EC8F5 /* LGPhotoPickerBrowserPhotoView.m */; };
 		A749BB5B1E5DAA19009EC8F5 /* LGPhotoPickerCustomToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A749BB531E5DAA19009EC8F5 /* LGPhotoPickerCustomToolBarView.m */; };
 		A749BB601E5DAB3D009EC8F5 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = A749BB5F1E5DAB3D009EC8F5 /* UIView+Layout.m */; };
-		A749BB671E5DAFEF009EC8F5 /* btn_back_imagePicker.png in Resources */ = {isa = PBXBuildFile; fileRef = A749BB621E5DAFEF009EC8F5 /* btn_back_imagePicker.png */; };
-		A749BB681E5DAFEF009EC8F5 /* checkbox_pic_non.png in Resources */ = {isa = PBXBuildFile; fileRef = A749BB631E5DAFEF009EC8F5 /* checkbox_pic_non.png */; };
-		A749BB691E5DAFEF009EC8F5 /* checkbox_pic_non2.png in Resources */ = {isa = PBXBuildFile; fileRef = A749BB641E5DAFEF009EC8F5 /* checkbox_pic_non2.png */; };
-		A749BB6A1E5DAFEF009EC8F5 /* checkbox_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = A749BB651E5DAFEF009EC8F5 /* checkbox_pic.png */; };
-		A749BB6B1E5DAFEF009EC8F5 /* checkbox_pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = A749BB661E5DAFEF009EC8F5 /* checkbox_pic2.png */; };
-		A759FA191E4AEFF100F53B45 /* photograph.png in Resources */ = {isa = PBXBuildFile; fileRef = A759FA181E4AEFF100F53B45 /* photograph.png */; };
-		A759FA1B1E4AEFFB00F53B45 /* photograph_Select.png in Resources */ = {isa = PBXBuildFile; fileRef = A759FA1A1E4AEFFB00F53B45 /* photograph_Select.png */; };
 		A759FA1E1E4B449700F53B45 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A759FA1D1E4B449700F53B45 /* CoreMotion.framework */; };
+		A797A0681E7A7FF50023A65E /* cameraFocus.png in Resources */ = {isa = PBXBuildFile; fileRef = A797A05D1E7A7FF50023A65E /* cameraFocus.png */; };
+		A797A06D1E7A7FF50023A65E /* flash-auto.png in Resources */ = {isa = PBXBuildFile; fileRef = A797A0621E7A7FF50023A65E /* flash-auto.png */; };
+		A797A06E1E7A7FF50023A65E /* flash-on.png in Resources */ = {isa = PBXBuildFile; fileRef = A797A0631E7A7FF50023A65E /* flash-on.png */; };
+		A797A06F1E7A7FF50023A65E /* flash.png in Resources */ = {isa = PBXBuildFile; fileRef = A797A0641E7A7FF50023A65E /* flash.png */; };
+		A797A0701E7A7FF50023A65E /* photograph_Select.png in Resources */ = {isa = PBXBuildFile; fileRef = A797A0651E7A7FF50023A65E /* photograph_Select.png */; };
+		A797A0711E7A7FF50023A65E /* photograph.png in Resources */ = {isa = PBXBuildFile; fileRef = A797A0661E7A7FF50023A65E /* photograph.png */; };
+		A797A07A1E7A810A0023A65E /* SPBrowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A797A0791E7A810A0023A65E /* SPBrowerViewController.m */; };
+		A797A07D1E7A82920023A65E /* SPGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A797A07C1E7A82920023A65E /* SPGroupViewController.m */; };
+		A797A0811E7A8D3B0023A65E /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = A797A0801E7A8D3B0023A65E /* lock.png */; };
+		A797A0841E7A93D70023A65E /* SPBrowerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A797A0831E7A93D70023A65E /* SPBrowerCollectionView.m */; };
+		A797A0871E7A97410023A65E /* SPBrowerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A797A0861E7A97410023A65E /* SPBrowerCollectionViewCell.m */; };
+		A797A08A1E7A9DEC0023A65E /* SPBrowerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A797A0891E7A9DEC0023A65E /* SPBrowerImageView.m */; };
+		A797A08F1E7AA7780023A65E /* icon_pic_break.png in Resources */ = {isa = PBXBuildFile; fileRef = A797A08E1E7AA7780023A65E /* icon_pic_break.png */; };
+		A797A0A21E7AAF910023A65E /* SPBrowserPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = A797A0A11E7AAF910023A65E /* SPBrowserPhoto.m */; };
+		A7A763C11E7F7D0100EBFDB9 /* checkbox_pic_non.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A763BF1E7F7D0100EBFDB9 /* checkbox_pic_non.png */; };
+		A7A763C21E7F7D0100EBFDB9 /* checkbox_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A763C01E7F7D0100EBFDB9 /* checkbox_pic.png */; };
 		A7E3C0AA1E515F10005FE109 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3C0A91E515F10005FE109 /* Photos.framework */; };
 		A7E3C0AD1E518675005FE109 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C0AC1E518675005FE109 /* PhotoPickerViewController.m */; };
 		A7E3C0B61E51A167005FE109 /* PhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C0B11E51A167005FE109 /* PhotoTweaksViewController.m */; };
 		A7E3C0B71E51A167005FE109 /* PhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C0B31E51A167005FE109 /* PhotoTweakView.m */; };
 		A7E3C0B81E51A167005FE109 /* UIColor+Tweak.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C0B51E51A167005FE109 /* UIColor+Tweak.m */; };
+		A7FE26411E7B828E00F69979 /* iconBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FE26401E7B828E00F69979 /* iconBack.png */; };
+		A7FE26431E7B82A400F69979 /* btn_back_imagePicker.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FE26421E7B82A400F69979 /* btn_back_imagePicker.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3BE671308FF9AED1CB056633 /* Pods-imageLib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageLib.release.xcconfig"; path = "Pods/Target Support Files/Pods-imageLib/Pods-imageLib.release.xcconfig"; sourceTree = "<group>"; };
 		A708789B1E4C7FC200D3153C /* CameraConfirmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraConfirmView.h; path = Camera/CameraConfirmView.h; sourceTree = "<group>"; };
 		A708789C1E4C7FC200D3153C /* CameraConfirmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraConfirmView.m; path = Camera/CameraConfirmView.m; sourceTree = "<group>"; };
 		A71296A61E4AB7C400B96583 /* imageLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imageLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,12 +84,10 @@
 		A71296C11E4AB9E600B96583 /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCameraViewController.m; path = Camera/CustomCameraViewController.m; sourceTree = "<group>"; };
 		A72392691E4C1E4900624B46 /* CameraFocusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraFocusView.h; path = Camera/CameraFocusView.h; sourceTree = "<group>"; };
 		A723926A1E4C1E4900624B46 /* CameraFocusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraFocusView.m; path = Camera/CameraFocusView.m; sourceTree = "<group>"; };
-		A723926C1E4C21B600624B46 /* cameraFocus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraFocus.png; sourceTree = "<group>"; };
-		A723926E1E4C418D00624B46 /* flash-auto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash-auto.png"; sourceTree = "<group>"; };
-		A72392701E4C419600624B46 /* flash-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash-on.png"; sourceTree = "<group>"; };
-		A72392721E4C41A100624B46 /* flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flash.png; sourceTree = "<group>"; };
 		A72392741E4C439900624B46 /* CameraGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraGridView.h; path = Camera/CameraGridView.h; sourceTree = "<group>"; };
 		A72392751E4C439900624B46 /* CameraGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraGridView.m; path = Camera/CameraGridView.m; sourceTree = "<group>"; };
+		A739EE771E7BE61800496D9B /* SPAlbums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAlbums.h; sourceTree = "<group>"; };
+		A739EE781E7BE61800496D9B /* SPAlbums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAlbums.m; sourceTree = "<group>"; };
 		A749BB031E5D79B8009EC8F5 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
 		A749BB1D1E5DA938009EC8F5 /* LGPhotoAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPhotoAssets.h; sourceTree = "<group>"; };
 		A749BB1E1E5DA938009EC8F5 /* LGPhotoAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhotoAssets.m; sourceTree = "<group>"; };
@@ -121,14 +129,29 @@
 		A749BB531E5DAA19009EC8F5 /* LGPhotoPickerCustomToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhotoPickerCustomToolBarView.m; sourceTree = "<group>"; };
 		A749BB5E1E5DAB3D009EC8F5 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		A749BB5F1E5DAB3D009EC8F5 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
-		A749BB621E5DAFEF009EC8F5 /* btn_back_imagePicker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back_imagePicker.png; sourceTree = "<group>"; };
-		A749BB631E5DAFEF009EC8F5 /* checkbox_pic_non.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_pic_non.png; sourceTree = "<group>"; };
-		A749BB641E5DAFEF009EC8F5 /* checkbox_pic_non2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_pic_non2.png; sourceTree = "<group>"; };
-		A749BB651E5DAFEF009EC8F5 /* checkbox_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_pic.png; sourceTree = "<group>"; };
-		A749BB661E5DAFEF009EC8F5 /* checkbox_pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_pic2.png; sourceTree = "<group>"; };
-		A759FA181E4AEFF100F53B45 /* photograph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photograph.png; sourceTree = "<group>"; };
-		A759FA1A1E4AEFFB00F53B45 /* photograph_Select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photograph_Select.png; sourceTree = "<group>"; };
 		A759FA1D1E4B449700F53B45 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A797A05D1E7A7FF50023A65E /* cameraFocus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cameraFocus.png; path = assets/cameraFocus.png; sourceTree = "<group>"; };
+		A797A0621E7A7FF50023A65E /* flash-auto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flash-auto.png"; path = "assets/flash-auto.png"; sourceTree = "<group>"; };
+		A797A0631E7A7FF50023A65E /* flash-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flash-on.png"; path = "assets/flash-on.png"; sourceTree = "<group>"; };
+		A797A0641E7A7FF50023A65E /* flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flash.png; path = assets/flash.png; sourceTree = "<group>"; };
+		A797A0651E7A7FF50023A65E /* photograph_Select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photograph_Select.png; path = assets/photograph_Select.png; sourceTree = "<group>"; };
+		A797A0661E7A7FF50023A65E /* photograph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photograph.png; path = assets/photograph.png; sourceTree = "<group>"; };
+		A797A0781E7A810A0023A65E /* SPBrowerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPBrowerViewController.h; sourceTree = "<group>"; };
+		A797A0791E7A810A0023A65E /* SPBrowerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBrowerViewController.m; sourceTree = "<group>"; };
+		A797A07B1E7A82920023A65E /* SPGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGroupViewController.h; sourceTree = "<group>"; };
+		A797A07C1E7A82920023A65E /* SPGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGroupViewController.m; sourceTree = "<group>"; };
+		A797A0801E7A8D3B0023A65E /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lock.png; path = assets/lock.png; sourceTree = "<group>"; };
+		A797A0821E7A93D70023A65E /* SPBrowerCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPBrowerCollectionView.h; sourceTree = "<group>"; };
+		A797A0831E7A93D70023A65E /* SPBrowerCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBrowerCollectionView.m; sourceTree = "<group>"; };
+		A797A0851E7A97410023A65E /* SPBrowerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPBrowerCollectionViewCell.h; sourceTree = "<group>"; };
+		A797A0861E7A97410023A65E /* SPBrowerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBrowerCollectionViewCell.m; sourceTree = "<group>"; };
+		A797A0881E7A9DEC0023A65E /* SPBrowerImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPBrowerImageView.h; sourceTree = "<group>"; };
+		A797A0891E7A9DEC0023A65E /* SPBrowerImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBrowerImageView.m; sourceTree = "<group>"; };
+		A797A08E1E7AA7780023A65E /* icon_pic_break.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_pic_break.png; path = assets/icon_pic_break.png; sourceTree = "<group>"; };
+		A797A0A01E7AAF910023A65E /* SPBrowserPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPBrowserPhoto.h; sourceTree = "<group>"; };
+		A797A0A11E7AAF910023A65E /* SPBrowserPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBrowserPhoto.m; sourceTree = "<group>"; };
+		A7A763BF1E7F7D0100EBFDB9 /* checkbox_pic_non.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_pic_non.png; sourceTree = "<group>"; };
+		A7A763C01E7F7D0100EBFDB9 /* checkbox_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_pic.png; sourceTree = "<group>"; };
 		A7E3C0A91E515F10005FE109 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		A7E3C0AB1E518675005FE109 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoPickerViewController.h; path = PhotoPicker/PhotoPickerViewController.h; sourceTree = "<group>"; };
 		A7E3C0AC1E518675005FE109 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoPickerViewController.m; path = PhotoPicker/PhotoPickerViewController.m; sourceTree = "<group>"; };
@@ -138,6 +161,10 @@
 		A7E3C0B31E51A167005FE109 /* PhotoTweakView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweakView.m; sourceTree = "<group>"; };
 		A7E3C0B41E51A167005FE109 /* UIColor+Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tweak.h"; sourceTree = "<group>"; };
 		A7E3C0B51E51A167005FE109 /* UIColor+Tweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tweak.m"; sourceTree = "<group>"; };
+		A7FE26401E7B828E00F69979 /* iconBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconBack.png; sourceTree = "<group>"; };
+		A7FE26421E7B82A400F69979 /* btn_back_imagePicker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back_imagePicker.png; sourceTree = "<group>"; };
+		E0292981AA0B3C8DAB7BC22B /* Pods-imageLib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageLib.debug.xcconfig"; path = "Pods/Target Support Files/Pods-imageLib/Pods-imageLib.debug.xcconfig"; sourceTree = "<group>"; };
+		E35E8E69E8CDDB81D22BDF89 /* libPods-imageLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-imageLib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,18 +174,29 @@
 			files = (
 				A7E3C0AA1E515F10005FE109 /* Photos.framework in Frameworks */,
 				A759FA1E1E4B449700F53B45 /* CoreMotion.framework in Frameworks */,
+				93D3BBA5AD1F39AB8CFD8374 /* libPods-imageLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7FB171412EEC5995F3D438E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0292981AA0B3C8DAB7BC22B /* Pods-imageLib.debug.xcconfig */,
+				3BE671308FF9AED1CB056633 /* Pods-imageLib.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A712969D1E4AB7C400B96583 = {
 			isa = PBXGroup;
 			children = (
 				A71296A81E4AB7C400B96583 /* imageLib */,
 				A71296A71E4AB7C400B96583 /* Products */,
 				A759FA1C1E4B449700F53B45 /* Frameworks */,
+				7FB171412EEC5995F3D438E1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,6 +211,7 @@
 		A71296A81E4AB7C400B96583 /* imageLib */ = {
 			isa = PBXGroup;
 			children = (
+				A797A0741E7A80A20023A65E /* SharePhotoBrower */,
 				A749BB611E5DAFDB009EC8F5 /* assets */,
 				A749BB5C1E5DAB2C009EC8F5 /* PhotosPicker */,
 				A7E3C0AF1E51A167005FE109 /* PhotoTweaks */,
@@ -337,17 +376,18 @@
 		A749BB611E5DAFDB009EC8F5 /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				A749BB621E5DAFEF009EC8F5 /* btn_back_imagePicker.png */,
-				A749BB631E5DAFEF009EC8F5 /* checkbox_pic_non.png */,
-				A749BB641E5DAFEF009EC8F5 /* checkbox_pic_non2.png */,
-				A749BB651E5DAFEF009EC8F5 /* checkbox_pic.png */,
-				A749BB661E5DAFEF009EC8F5 /* checkbox_pic2.png */,
-				A72392721E4C41A100624B46 /* flash.png */,
-				A72392701E4C419600624B46 /* flash-on.png */,
-				A723926E1E4C418D00624B46 /* flash-auto.png */,
-				A723926C1E4C21B600624B46 /* cameraFocus.png */,
-				A759FA181E4AEFF100F53B45 /* photograph.png */,
-				A759FA1A1E4AEFFB00F53B45 /* photograph_Select.png */,
+				A7FE26401E7B828E00F69979 /* iconBack.png */,
+				A7A763BF1E7F7D0100EBFDB9 /* checkbox_pic_non.png */,
+				A7A763C01E7F7D0100EBFDB9 /* checkbox_pic.png */,
+				A797A08E1E7AA7780023A65E /* icon_pic_break.png */,
+				A797A0801E7A8D3B0023A65E /* lock.png */,
+				A797A05D1E7A7FF50023A65E /* cameraFocus.png */,
+				A7FE26421E7B82A400F69979 /* btn_back_imagePicker.png */,
+				A797A0621E7A7FF50023A65E /* flash-auto.png */,
+				A797A0631E7A7FF50023A65E /* flash-on.png */,
+				A797A0641E7A7FF50023A65E /* flash.png */,
+				A797A0651E7A7FF50023A65E /* photograph_Select.png */,
+				A797A0661E7A7FF50023A65E /* photograph.png */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -357,8 +397,54 @@
 			children = (
 				A7E3C0A91E515F10005FE109 /* Photos.framework */,
 				A759FA1D1E4B449700F53B45 /* CoreMotion.framework */,
+				E35E8E69E8CDDB81D22BDF89 /* libPods-imageLib.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A797A0741E7A80A20023A65E /* SharePhotoBrower */ = {
+			isa = PBXGroup;
+			children = (
+				A797A0751E7A80A20023A65E /* Models */,
+				A797A0761E7A80A20023A65E /* ViewControllers */,
+				A797A0771E7A80A20023A65E /* Views */,
+			);
+			path = SharePhotoBrower;
+			sourceTree = "<group>";
+		};
+		A797A0751E7A80A20023A65E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A797A0A01E7AAF910023A65E /* SPBrowserPhoto.h */,
+				A797A0A11E7AAF910023A65E /* SPBrowserPhoto.m */,
+				A739EE771E7BE61800496D9B /* SPAlbums.h */,
+				A739EE781E7BE61800496D9B /* SPAlbums.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A797A0761E7A80A20023A65E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A797A0781E7A810A0023A65E /* SPBrowerViewController.h */,
+				A797A0791E7A810A0023A65E /* SPBrowerViewController.m */,
+				A797A07B1E7A82920023A65E /* SPGroupViewController.h */,
+				A797A07C1E7A82920023A65E /* SPGroupViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A797A0771E7A80A20023A65E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A797A0821E7A93D70023A65E /* SPBrowerCollectionView.h */,
+				A797A0831E7A93D70023A65E /* SPBrowerCollectionView.m */,
+				A797A0851E7A97410023A65E /* SPBrowerCollectionViewCell.h */,
+				A797A0861E7A97410023A65E /* SPBrowerCollectionViewCell.m */,
+				A797A0881E7A9DEC0023A65E /* SPBrowerImageView.h */,
+				A797A0891E7A9DEC0023A65E /* SPBrowerImageView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A7E3C0AE1E518686005FE109 /* PhotoPicker */ = {
@@ -390,9 +476,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A71296BD1E4AB7C400B96583 /* Build configuration list for PBXNativeTarget "imageLib" */;
 			buildPhases = (
+				83E72694CA4AFF4947DDCFE2 /* [CP] Check Pods Manifest.lock */,
 				A71296A21E4AB7C400B96583 /* Sources */,
 				A71296A31E4AB7C400B96583 /* Frameworks */,
 				A71296A41E4AB7C400B96583 /* Resources */,
+				55CB9E82E86977E7943556BD /* [CP] Embed Pods Frameworks */,
+				3E5B03474EE13415C0B16C28 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -442,24 +531,73 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A723926F1E4C418D00624B46 /* flash-auto.png in Resources */,
-				A749BB6B1E5DAFEF009EC8F5 /* checkbox_pic2.png in Resources */,
-				A749BB681E5DAFEF009EC8F5 /* checkbox_pic_non.png in Resources */,
-				A723926D1E4C21B600624B46 /* cameraFocus.png in Resources */,
-				A749BB671E5DAFEF009EC8F5 /* btn_back_imagePicker.png in Resources */,
+				A797A0701E7A7FF50023A65E /* photograph_Select.png in Resources */,
+				A797A06E1E7A7FF50023A65E /* flash-on.png in Resources */,
 				A71296B91E4AB7C400B96583 /* LaunchScreen.storyboard in Resources */,
 				A71296B61E4AB7C400B96583 /* Assets.xcassets in Resources */,
-				A72392711E4C419600624B46 /* flash-on.png in Resources */,
-				A759FA191E4AEFF100F53B45 /* photograph.png in Resources */,
+				A797A06D1E7A7FF50023A65E /* flash-auto.png in Resources */,
 				A71296B41E4AB7C400B96583 /* Main.storyboard in Resources */,
-				A72392731E4C41A100624B46 /* flash.png in Resources */,
-				A759FA1B1E4AEFFB00F53B45 /* photograph_Select.png in Resources */,
-				A749BB6A1E5DAFEF009EC8F5 /* checkbox_pic.png in Resources */,
-				A749BB691E5DAFEF009EC8F5 /* checkbox_pic_non2.png in Resources */,
+				A797A0681E7A7FF50023A65E /* cameraFocus.png in Resources */,
+				A7FE26431E7B82A400F69979 /* btn_back_imagePicker.png in Resources */,
+				A797A0811E7A8D3B0023A65E /* lock.png in Resources */,
+				A797A06F1E7A7FF50023A65E /* flash.png in Resources */,
+				A7FE26411E7B828E00F69979 /* iconBack.png in Resources */,
+				A7A763C11E7F7D0100EBFDB9 /* checkbox_pic_non.png in Resources */,
+				A797A08F1E7AA7780023A65E /* icon_pic_break.png in Resources */,
+				A7A763C21E7F7D0100EBFDB9 /* checkbox_pic.png in Resources */,
+				A797A0711E7A7FF50023A65E /* photograph.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E5B03474EE13415C0B16C28 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-imageLib/Pods-imageLib-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55CB9E82E86977E7943556BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-imageLib/Pods-imageLib-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83E72694CA4AFF4947DDCFE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A71296A21E4AB7C400B96583 /* Sources */ = {
@@ -470,17 +608,23 @@
 				A708789D1E4C7FC200D3153C /* CameraConfirmView.m in Sources */,
 				A749BB551E5DAA19009EC8F5 /* LGPhotoRect.m in Sources */,
 				A723926B1E4C1E4900624B46 /* CameraFocusView.m in Sources */,
+				A739EE791E7BE61800496D9B /* SPAlbums.m in Sources */,
 				A749BB381E5DA938009EC8F5 /* LGPhotoPickerAssetsViewController.m in Sources */,
 				A749BB371E5DA938009EC8F5 /* LGPhotoPickerGroup.m in Sources */,
 				A749BB591E5DAA19009EC8F5 /* LGPhotoPickerBrowserPhotoScrollView.m in Sources */,
+				A797A0A21E7AAF910023A65E /* SPBrowserPhoto.m in Sources */,
 				A749BB361E5DA938009EC8F5 /* LGPhotoPickerDatas.m in Sources */,
 				A749BB5B1E5DAA19009EC8F5 /* LGPhotoPickerCustomToolBarView.m in Sources */,
+				A797A07D1E7A82920023A65E /* SPGroupViewController.m in Sources */,
+				A797A07A1E7A810A0023A65E /* SPBrowerViewController.m in Sources */,
 				A749BB3C1E5DA938009EC8F5 /* LGPhotoPickerCollectionViewCell.m in Sources */,
 				A7E3C0B81E51A167005FE109 /* UIColor+Tweak.m in Sources */,
 				A71296B11E4AB7C400B96583 /* ViewController.m in Sources */,
 				A749BB601E5DAB3D009EC8F5 /* UIView+Layout.m in Sources */,
 				A749BB581E5DAA19009EC8F5 /* LGPhotoPickerBrowserPhotoImageView.m in Sources */,
 				A749BB571E5DAA19009EC8F5 /* LGImagePickerSelectView.m in Sources */,
+				A797A0841E7A93D70023A65E /* SPBrowerCollectionView.m in Sources */,
+				A797A0871E7A97410023A65E /* SPBrowerCollectionViewCell.m in Sources */,
 				A71296AE1E4AB7C400B96583 /* AppDelegate.m in Sources */,
 				A7E3C0B61E51A167005FE109 /* PhotoTweaksViewController.m in Sources */,
 				A749BB3A1E5DA938009EC8F5 /* LGPhotoPickerViewController.m in Sources */,
@@ -492,6 +636,7 @@
 				A749BB3E1E5DA938009EC8F5 /* LGPhotoPickerGroupTableViewCell.m in Sources */,
 				A7E3C0AD1E518675005FE109 /* PhotoPickerViewController.m in Sources */,
 				A749BB561E5DAA19009EC8F5 /* LGPhotoPickerBrowserViewController.m in Sources */,
+				A797A08A1E7A9DEC0023A65E /* SPBrowerImageView.m in Sources */,
 				A71296AB1E4AB7C400B96583 /* main.m in Sources */,
 				A749BB351E5DA938009EC8F5 /* LGPhotoAssets.m in Sources */,
 				A7E3C0B71E51A167005FE109 /* PhotoTweakView.m in Sources */,
@@ -613,6 +758,7 @@
 		};
 		A71296BE1E4AB7C400B96583 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0292981AA0B3C8DAB7BC22B /* Pods-imageLib.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DFEC36278N;
@@ -634,6 +780,7 @@
 		};
 		A71296BF1E4AB7C400B96583 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BE671308FF9AED1CB056633 /* Pods-imageLib.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DFEC36278N;

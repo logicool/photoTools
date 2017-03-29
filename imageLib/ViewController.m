@@ -11,6 +11,8 @@
 #import "PhotoPickerViewController.h"
 #import "LGPhotoPickerViewController.h"
 #import "LGPhotoAssets.h"
+#import "SPBrowerViewController.h"
+
 @interface ViewController () <LGPhotoPickerViewControllerDelegate>
 
 @end
@@ -44,7 +46,7 @@
     [self.view addSubview:pickerBtn];
     
     UIButton *moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    moreBtn.frame = CGRectMake(CGRectGetMidX(self.view.frame) - 30, CGRectGetMidY(self.view.frame) - 190, 60, 60);
+    moreBtn.frame = CGRectMake(CGRectGetMidX(self.view.frame) - 30, CGRectGetMidY(self.view.frame) - 170, 60, 60);
     [moreBtn setTitle:@"多选择" forState:UIControlStateNormal];
     [moreBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [moreBtn setBackgroundColor:[UIColor purpleColor]];
@@ -52,6 +54,16 @@
     moreBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [moreBtn addTarget:self action:@selector(presentPhotoPickerViewControllerWithStyle) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:moreBtn];
+    
+    UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    shareBtn.frame = CGRectMake(CGRectGetMidX(self.view.frame) - 30, CGRectGetMidY(self.view.frame) - 240, 60, 60);
+    [shareBtn setTitle:@"分享" forState:UIControlStateNormal];
+    [shareBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [shareBtn setBackgroundColor:[UIColor purpleColor]];
+    
+    shareBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [shareBtn addTarget:self action:@selector(presentPhotoShare) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:shareBtn];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -83,6 +95,15 @@
     pickerVc.maxCount = 11;   // 最多能选11张图片
     pickerVc.delegate = self;
     [pickerVc showPickerVc:self];
+}
+
+/**
+ * 初始化分享
+ */
+- (void)presentPhotoShare {
+    SPBrowerViewController *pickerVc = [[SPBrowerViewController alloc] init];
+    [pickerVc showPickerVc:self];
+//    [self.navigationController pushViewController:pickerVc animated:YES];
 }
 
 #pragma mark - LGPhotoPickerViewControllerDelegate

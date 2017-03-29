@@ -17,6 +17,22 @@
 #define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
 #define IOS8_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"8.0"] != NSOrderedAscending )
 #define IOS9_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"9.0"] != NSOrderedAscending )
+#define iOS7gt ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+
+
+#define NEED_DEBUG
+#ifdef NEED_DEBUG
+#define NSLog(format, ...) \
+do { \
+NSLog(@"<%@ : %d : %s>-: %@", \
+[[NSString stringWithUTF8String:__FILE__] lastPathComponent], \
+__LINE__, \
+__FUNCTION__, \
+[NSString stringWithFormat:format, ##__VA_ARGS__]); \
+} while(0)
+#else
+#define NSLog(format, ...) do{ } while(0)
+#endif
 
 //图片显示器分类
 typedef NS_ENUM(NSInteger, LGShowImageType) {

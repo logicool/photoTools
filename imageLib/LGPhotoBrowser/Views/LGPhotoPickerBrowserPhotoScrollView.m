@@ -9,6 +9,8 @@
 #import "LGPhotoPickerDatas.h"
 #import "CommonHeader.h"
 #import "LGPhotoRect.h"
+#import "DACircularProgressView.h"
+#import "UIImageView+WebCache.h"
 
 
 #define ORIGINALBTN_TAG 9999
@@ -26,6 +28,7 @@
 
 @property (nonatomic, assign) CGFloat                progress;
 @property (nonatomic, assign) BOOL                   isLoadingDone;
+@property (strong,nonatomic ) DACircularProgressView *progressView;
 
 @end
 
@@ -66,6 +69,24 @@
         //Gesture  最后面添加
         UILongPressGestureRecognizer *longGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longGesture:)];
         [self addGestureRecognizer:longGesture];
+        
+        // 图片读取
+        DACircularProgressView *progressView = [[DACircularProgressView alloc] init];
+        progressView.frame = CGRectMake(0, 0, LGPickerProgressViewW, LGPickerProgressViewH);
+        progressView.center = CGPointMake([UIScreen mainScreen].bounds.size.width * 0.5, [UIScreen mainScreen].bounds.size.height * 0.5);
+        progressView.roundedCorners = YES;
+        if (iOS7gt) {
+            progressView.thicknessRatio = 0.1;
+            progressView.roundedCorners = NO;
+        } else {
+            progressView.thicknessRatio = 0.2;
+            progressView.roundedCorners = YES;
+        }
+        progressView.hidden = YES;
+        
+        [self addSubview:progressView];
+        self.progressView = progressView;
+        
         
         //addObservers
         [self addObservers];
@@ -143,6 +164,42 @@
             }];
         } else {
             // 非本地图片
+            
+            UIImage *thumbImage = photo.thumbImage;
+            if (thumbImage == nil) {
+                thumbImage = _photoImageView.image;
+            }else{
+                photo.photoImage = thumbImage;
+                _photoImageView.image = thumbImage;
+            }
+            
+            _photoImageView.contentMode = UIViewContentModeScaleAspectFit;
+            _photoImageView.frame = [LGPhotoRect setMaxMinZoomScalesForCurrentBoundWithImageView:_photoImageView];
+            
+            if (_photoImageView.image == nil) {
+                [self setProgress:0.01];
+            }
+            
+            // 网络URL
+            [_photoImageView sd_setImageWithURL:photo.photoURL
+                               placeholderImage:thumbImage
+                               options:SDWebImageRetryFailed
+                               progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                [self setProgress:(double)receivedSize / expectedSize];
+            } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                [self setProgress:1.0];
+                self.isLoadingDone = YES;
+                if (image) {
+                    _photoImageView.image = image;
+                    [weakSelf displayImage];
+                }else{
+                    [_photoImageView removeScaleBigTap];
+                    _photoImageView.image = GetImage(@"icon_pic_break.png");
+                    [weakSelf displayImage];
+                }
+            }];
+            
+            //
         }
         
     }  else {

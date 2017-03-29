@@ -15,6 +15,14 @@
 #import "CameraFocusView.h"
 #import "CameraGridView.h"
 #import "CameraConfirmView.h"
+
+@class CustomCameraViewController;
+
+@protocol CustomCameraViewControllerDelegate <NSObject>
+- (void)saveImageToPhotoAlbum:(UIImage*)savedImage;
+- (void)cancelSave:(CustomCameraViewController *) viewController;
+@end
+
 @interface CustomCameraViewController : UIViewController
 
 /**
@@ -47,6 +55,7 @@
 @property (nonatomic)CameraGridView *gridView;
 @property (nonatomic, strong) UIImage *imageToDisplay;
 @property (nonatomic)BOOL canCa;
+@property (nonatomic, weak) id <CustomCameraViewControllerDelegate> delegate;
 // 螺旋仪和加速器
 @property (nonatomic, strong) CMMotionManager * motionManager;
 @end

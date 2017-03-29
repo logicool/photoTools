@@ -394,29 +394,29 @@ static CGFloat TOP_HEIGHT = 44;
     [self.view addSubview:view];
 }
 
-#pragma mark - 保存至相册
-- (void)saveImageToPhotoAlbum:(UIImage*)savedImage
-{
-//    UIImageWriteToSavedPhotosAlbum(savedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
-    __block NSString *createdAssetID =nil;//唯一标识，可以用于图片资源获取
-    
-    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-        createdAssetID = [PHAssetChangeRequest creationRequestForAssetFromImage:savedImage].placeholderForCreatedAsset.localIdentifier;
-    } completionHandler:^(BOOL success, NSError * _Nullable error) {
-        if (success) {
-            if (createdAssetID != nil) {
-                PHFetchResult *result = [PHAsset fetchAssetsWithLocalIdentifiers:@[createdAssetID] options:nil];
-                [result.firstObject requestContentEditingInputWithOptions: nil completionHandler:^(PHContentEditingInput * _Nullable contentEditingInput, NSDictionary * _Nonnull info) {
-                    NSLog(@"%@", [contentEditingInput fullSizeImageURL]);
-                }];
-            } else {
-                NSLog(@"获取保存Image失败！", nil);
-            }
-        } else {
-            NSLog(@"保存失败：%@",error);
-        }
-    }];
-}
+#pragma mark - 保存至相册 // @FIX 做成protocol协议，在其他controller实现保存方法
+//- (void)saveImageToPhotoAlbum:(UIImage*)savedImage
+//{
+////    UIImageWriteToSavedPhotosAlbum(savedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+//    __block NSString *createdAssetID =nil;//唯一标识，可以用于图片资源获取
+//    
+//    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+//        createdAssetID = [PHAssetChangeRequest creationRequestForAssetFromImage:savedImage].placeholderForCreatedAsset.localIdentifier;
+//    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+//        if (success) {
+//            if (createdAssetID != nil) {
+//                PHFetchResult *result = [PHAsset fetchAssetsWithLocalIdentifiers:@[createdAssetID] options:nil];
+//                [result.firstObject requestContentEditingInputWithOptions: nil completionHandler:^(PHContentEditingInput * _Nullable contentEditingInput, NSDictionary * _Nonnull info) {
+//                    NSLog(@"%@", [contentEditingInput fullSizeImageURL]);
+//                }];
+//            } else {
+//                NSLog(@"获取保存Image失败！", nil);
+//            }
+//        } else {
+//            NSLog(@"保存失败：%@",error);
+//        }
+//    }];
+//}
 
 #pragma mark - 指定回调方法
 //- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
@@ -441,11 +441,17 @@ static CGFloat TOP_HEIGHT = 44;
     [self flashLightModel:^{
         [self.device setFlashMode:AVCaptureFlashModeOff];
     }];
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([_delegate respondsToSelector:@selector(cancelSave:)]) {
+        [_delegate cancelSave:self];
+    }
 }
 
 - (void)done{
-    [self saveImageToPhotoAlbum:self.imageToDisplay];
+//    [self saveImageToPhotoAlbum:self.imageToDisplay];
+    if ([_delegate respondsToSelector:@selector(saveImageToPhotoAlbum:)]) {
+        [_delegate saveImageToPhotoAlbum:self.imageToDisplay];
+    }
     // 返回保存图片绝对地址 @FIXME @TODO
     [self dismissViewControllerAnimated:YES completion:nil];
 }

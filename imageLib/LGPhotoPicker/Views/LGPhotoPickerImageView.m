@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 L&G. All rights reserved.
 
 #import "LGPhotoPickerImageView.h"
+#import "CommonHeader.h"
 
 @interface LGPhotoPickerImageView ()
 
@@ -52,7 +53,7 @@
     if (!_tickImageView) {
         UIImageView *tickImageView = [[UIImageView alloc] init];
         tickImageView.frame = CGRectMake(self.bounds.size.width - 28, 5, 21, 21);
-        tickImageView.image = [UIImage imageNamed:@"checkbox_pic_non"];
+        tickImageView.image = GetImage(@"checkbox_pic_non.png");
         [self addSubview:tickImageView];
         self.tickImageView = tickImageView;
     }
@@ -69,9 +70,9 @@
     
     if (!maskViewFlag) {
         // hidden
-        [self.tickImageView setImage:[UIImage imageNamed:@"checkbox_pic_non"]];
+        [self.tickImageView setImage:GetImage(@"checkbox_pic_non.png")];
     }else{
-        [self.tickImageView setImage:[UIImage imageNamed:@"checkbox_pic"]];
+        [self.tickImageView setImage:GetImage(@"checkbox_pic.png")];
     }
     self.animationRightTick = maskViewFlag;
 }

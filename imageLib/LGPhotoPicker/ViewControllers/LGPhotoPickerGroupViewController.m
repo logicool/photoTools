@@ -20,7 +20,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 @interface LGPhotoPickerGroupViewController () <UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic, weak) LGPhotoPickerAssetsViewController *collectionVc;
+//@property (nonatomic, weak) LGPhotoPickerAssetsViewController *collectionVc;
 
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, copy) NSArray *groups;
@@ -69,7 +69,7 @@
     if (author == ALAuthorizationStatusRestricted || author ==ALAuthorizationStatusDenied) {
         // 判断没有权限获取用户相册的话，就提示个View
         UIImageView *lockView = [[UIImageView alloc] init];
-        lockView.image = [UIImage imageNamed:@"lock.png"];
+        lockView.image = GetImage(@"lock.png");
         lockView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200);
         lockView.contentMode = UIViewContentModeCenter;
         [self.view addSubview:lockView];
