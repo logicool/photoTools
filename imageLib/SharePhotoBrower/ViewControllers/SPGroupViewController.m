@@ -259,7 +259,9 @@ static float KCompressibilityFactor = 1280.00;
     if (!self.assets) {
         self.assets = [NSMutableArray array];
     }
-    
+    if (!self.selectAssets) {
+        self.selectAssets = [NSMutableArray array];
+    }
     NSArray *tmp = [[NSArray alloc] initWithArray:[self.shareData valueForKey:@"photoList"]];
     self.collectionView.dataArray = [NSMutableArray arrayWithArray:tmp];
     [self.assets setArray:tmp];
